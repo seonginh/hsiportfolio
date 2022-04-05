@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://fonts.googleapis.com/css2?family=BIZ+UDMincho&display=swap" rel="stylesheet">
+    <title>your name.</title>
+    <link href="https://fonts.googleapis.com/css2?family=BIZ+UDMincho&family=Lora:ital,wght@1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="icon/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="scroll_h.js"></script>
     <script>
@@ -113,6 +114,14 @@
                     $('#preview_left').animate({'width':'1131px','opacity':'1'},800)
                     $('#preview_right').animate({'right':'0px','opacity':'1'},800)
                 }
+                if (sc>=5500){
+                    $('header').css({'display':'block'})
+                    $('#menu_bar>li:nth-child(7)').css({'font-size':'30px'}).siblings().css({'font-size':'15px'})
+                    $('#sns').css({'bottom':'10px'})
+                    $('#goods1').animate({'left':'250px','opacity':'1'},800)
+                    $('#goods2').animate({'right':'250px','opacity':'1'},800)
+                    $('#goods_box>a>button').animate({'bottom':'30px','opacity':'1'},800)
+                }
             })
             $('#right_bt').click(function(){
                 slide = slide - 100;
@@ -150,7 +159,7 @@
 		    $('#next_bt').click(function(){
 			    num = num + 1;
 			    if(num>4){ num=4 }
-			    $('#music_box>audio').attr({'src':'music'+num+'.mp3'})
+			    $('#music_box>audio').attr({'src':'slide/music'+num+'.mp3'})
 			        audio1 = $('#music_box>audio').get(0)
 			        audio1.play()
 			    if(num==1){
@@ -202,9 +211,17 @@
                     $('#music10').animate({'bottom':'150px'},990)
                 })
             },2000)
-            $('#gallery_bt>li').click(function(){
+            $('#gallery_bt1>li').click(function(){
 			    $(this).css({'background-color':'#fff'}).siblings().css({'background-color':'transparent'})
-                $('.popup_slide').animate({'left':$(this).index()*-100+"%"})
+                $('#popup_slide1').animate({'left':$(this).index()*-100+"%"})
+			})
+            $('#gallery_bt2>li').click(function(){
+			    $(this).css({'background-color':'#fff'}).siblings().css({'background-color':'transparent'})
+                $('#popup_slide2').animate({'left':$(this).index()*-100+"%"})
+			})
+            $('#gallery_bt3>li').click(function(){
+			    $(this).css({'background-color':'#fff'}).siblings().css({'background-color':'transparent'})
+                $('#popup_slide3').animate({'left':$(this).index()*-100+"%"})
 			})
             $('#gallery1').click(function(){
                 $('#popup_bg1').fadeIn(800)
@@ -246,25 +263,25 @@
         body,html {width: 100%; height: 100%; background-color: #000;}
         *{margin: 0; padding: 0; list-style: none; font-family: 'BIZ UDMincho', serif;}
         a{text-decoration: none; color: inherit;}
-        header {width: 100%; height: 80px; background-color: rgba(255,255,255,0.7); position: fixed; left: 0; top: 0; z-index: 999999; display: none;}
+        header {width: 100%; height: 80px; background-color: #ffffffb3; position: fixed; left: 0; top: 0; z-index: 999999; display: none;}
         #logo {position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; height: 70%;}
         #main {width: 100%; height: 100%; background: url(slide/htm_20161230151355586953.jpg); position: relative;}
-        #star1 {position: absolute; top: 100px; left: 150px; opacity: 0;}
-        #star2 {position: absolute; top: 70px; left: 700px;}
-        #star3 {position: absolute; top: 200px; right: 400px;}
-        #star4 {position: absolute; top: 170px; left: 1000px;}
-        #star5 {position: absolute; top: 420px; right: 500px;}
-        #star6 {position: absolute; top: 100px; right: 200px;}
-        #star7 {position: absolute; top: 300px; left: 500px;}
-        #star8 {position: absolute; top: 220px; left: 800px;}
+        #star1 {position: absolute; top: 100px; left: 150px; width: 100px; opacity: 0;}
+        #star2 {position: absolute; top: 70px; left: 700px; width: 100px; opacity: 0;}
+        #star3 {position: absolute; top: 200px; right: 400px; width: 100px; opacity: 0;}
+        #star4 {position: absolute; top: 170px; left: 1000px; width: 100px; opacity: 0;}
+        #star5 {position: absolute; top: 420px; right: 500px; width: 100px; opacity: 0;}
+        #star6 {position: absolute; top: 100px; right: 200px;width: 100px; opacity: 0;}
+        #star7 {position: absolute; top: 300px; left: 500px; width: 100px; opacity: 0;}
+        #star8 {position: absolute; top: 220px; left: 800px; width: 100px; opacity: 0;}
         #arrow {position: absolute; bottom: 30px; left: 0; right: 0; margin: auto; width: 40px;}   
         #main_logo {position: absolute; top: 0; bottom: 0; right: 0; left: 0; margin: auto; opacity: 0;}
         #story {width: 100%; height: 100%; background: url(slide/bg1.jpg) center no-repeat; position: relative;}
         #story_box {width: 1555px; height: 750px; position: absolute; top: 123px; left: 250px; z-index: 99999; overflow: hidden;}
         #story_right {width: 70%; height: 750px; float: right; position: relative; right: -2000px; opacity: 0;}
         #story_text_box {width: 95%; height: 95%; position: absolute; left: 0; top: 0; right: 0; bottom: 0; margin: auto; background-color: rgba(0,0,0,0.7);}
-        #story_text_box>h2 {color: #fff; margin-left: 5%; margin-top: 20px; font-size: 50px;}
-        #story_text_box>p {color: #fff; margin: 5%; font-size: 30px; line-height: 40px;}
+        #story_text_box>h2 {color: #fff; margin-left: 5%; margin-top: 20px; font-size: 50px; font-family: 'Lora', serif;}
+        #story_text_box>p {color: #fff; margin: 5%; font-size: 30px; line-height: 50px; font-family: 'Lora', serif;}
         #story_right>img {width: 100%; height: 750px;}
         #story_left {width: 30%; height: 750px; float: left; position: relative;}
         #story_img1 {opacity: 0;}
@@ -314,18 +331,30 @@
         #popup_bg2 {position: absolute; left: 0; top: 0; background-color: rgba(0,0,0,0.7); width: 100%; height: 100%; display: none;}
         #popup_bg3 {position: absolute; left: 0; top: 0; background-color: rgba(0,0,0,0.7); width: 100%; height: 100%; display: none;}
         .popup_box {position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; width: 1000px; height: 500px; border-radius: 25px; overflow: hidden;}
-        .popup_slide {width: 600%; height: 100%; position: relative;}
-        .popup_slide>li {width: 16.6667%; height: 100%; float: left; border-radius: 25px;}
-        .popup_slide>li>img {width: 100%; border-radius: 25px; height: 500px;}
-        #gallery_bt {width: 300px; text-align: center; height: 30px; position: absolute; left: 0; right: 0; margin: auto; bottom: 150px;}
-        #gallery_bt>li {width: 20px; height: 20px; border-radius: 20px; border: 2px solid #fff; display: inline-block; margin: 0 5px; background-color: transparent; cursor: pointer;}
-        #gallery_bt>li:nth-child(1) {background-color: #fff;}
+        #popup_slide1 {width: 600%; height: 100%; position: relative;}
+        #popup_slide1>li {width: 16.6667%; height: 100%; float: left; border-radius: 25px;}
+        #popup_slide1>li>img {width: 100%; border-radius: 25px; height: 500px;}
+        #popup_slide2 {width: 600%; height: 100%; position: relative;}
+        #popup_slide2>li {width: 16.6667%; height: 100%; float: left; border-radius: 25px;}
+        #popup_slide2>li>img {width: 100%; border-radius: 25px; height: 500px;}
+        #popup_slide3 {width: 600%; height: 100%; position: relative;}
+        #popup_slide3>li {width: 16.6667%; height: 100%; float: left; border-radius: 25px;}
+        #popup_slide3>li>img {width: 100%; border-radius: 25px; height: 500px;}
+        #gallery_bt1 {width: 300px; text-align: center; height: 30px; position: absolute; left: 0; right: 0; margin: auto; bottom: 150px;}
+        #gallery_bt1>li {width: 20px; height: 20px; border-radius: 20px; border: 2px solid #fff; display: inline-block; margin: 0 5px; background-color: transparent; cursor: pointer;}
+        #gallery_bt1>li:nth-child(1) {background-color: #fff;}
+        #gallery_bt2 {width: 300px; text-align: center; height: 30px; position: absolute; left: 0; right: 0; margin: auto; bottom: 150px;}
+        #gallery_bt2>li {width: 20px; height: 20px; border-radius: 20px; border: 2px solid #fff; display: inline-block; margin: 0 5px; background-color: transparent; cursor: pointer;}
+        #gallery_bt2>li:nth-child(1) {background-color: #fff;}
+        #gallery_bt3 {width: 300px; text-align: center; height: 30px; position: absolute; left: 0; right: 0; margin: auto; bottom: 150px;}
+        #gallery_bt3>li {width: 20px; height: 20px; border-radius: 20px; border: 2px solid #fff; display: inline-block; margin: 0 5px; background-color: transparent; cursor: pointer;}
+        #gallery_bt3>li:nth-child(1) {background-color: #fff;}
         #close_bt1 {position: absolute; right: 5px; top: 5px; cursor: pointer;}
         #close_bt2 {position: absolute; right: 5px; top: 5px; cursor: pointer;}
         #close_bt3 {position: absolute; right: 5px; top: 5px; cursor: pointer;}
         #preview {width: 100%; height: 100%; background: url(slide/bg5.png) center no-repeat; position: relative;}
         #preview_box {width: 1530px; height: 785px; position: absolute; right: 75px; top: 120px;}
-        #preview_left {width: 0px; height: 735px; margin-left: 40px; margin-top: 25px; text-align: center; position: relative; border: 5px solid rgb(99, 151, 236); border-radius: 30px; opacity: 0;} 
+        #preview_left {width: 0px; height: 735px; margin-left: 40px; margin-top: 25px; text-align: center; position: relative; border: 5px solid #6397ec; border-radius: 30px; opacity: 0;} 
         #preview_left>iframe {position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; border-radius: 30px;}
         #preview_right {width: 305px; height: 735px; position: absolute; right: 1530px; top: 25px; opacity: 0;}
         #preview_right>li {width: 305px; height: 170px; margin-top: 20px; border: 3px solid rgb(99, 151, 236); box-sizing: border-box; cursor: pointer; opacity: 0.7;}
@@ -336,12 +365,20 @@
         #preview2 {display: none;}
         #preview3 {display: none;}
         #preview4 {display: none;}
+        #goods {width: 100%; height: 100%; background: url(bg6.png) center no-repeat; box-sizing: border-box; position: relative;}
+        #goods_box {width: 1220px; height: 700px; position: absolute; left: 0; right: 0; margin: auto; top: 120px; background-color: rgba(255,255,255,0.7); border-radius: 20px; border: 5px solid #4946e0;}
+        #goods1 {position: absolute; top: 20px; left: 200px; opacity: 0;}
+        #goods2 {position: absolute; top: 30px; right: 200px; opacity: 0;}
+        #goods_box>a>button {position: absolute; width: 360px; height: 85px; left: 0; right: 0; margin: auto; bottom: 0px; border-radius: 20px; background-color: #93a3f4; border: 4px solid #4946e0;
+        color: #fff; font-size: 30px; font-weight: 400; line-height: 85px; cursor: pointer; opacity: 1;}
+        footer {width: 100%; height: 100px; background-color: rgb(43, 43, 43); position: absolute; left: 0; bottom: 0;}
+        footer>p {float: right; text-align: right; margin-right: 20px; margin-top: 30px; color: #fff; line-height: 30px; font-size: 14px;}
         .bg {position: absolute; width: 100%; height: 100%; left: 0; top: 0; background-color: rgba(0,0,0,0.5);}
         #sns {width: 300px; height: 80px; position: fixed; bottom: 30px; left: 50px;}
         #sns>h4 {font-size: 20px; margin-left: 10px; color: #fff;}
         #sns>ul {width: 100%;}
         #sns>ul>li {width: 40px; float: left; margin: 2.5%; cursor: pointer;}
-        #sns>ul>li>img {width: 100%;}     
+        #sns>ul>li>a>img {width: 100%;}     
         #menu_bar {width: 50px; height: 300px; position: fixed; left: 70px; top: 0; bottom: 0; margin: auto; } 
         #menu_bar>li {color: #fff; cursor: pointer; margin: auto; margin-top: 30px; font-size: 15px; cursor: pointer;}
         #menu_bar>li:nth-child(1) {margin-top: 0; font-size: 30px;}
@@ -352,14 +389,14 @@
         <img src="icon/logo1.png" alt="" id="logo">
     </header>
     <div id="main">
-        <img src="main/star.png" alt="" id="star1">
-        <img src="main/star.png" alt="" id="star2">
-        <img src="main/star.png" alt="" id="star3">
-        <img src="main/star.png" alt="" id="star4">
-        <img src="main/star.png" alt="" id="star5">
-        <img src="main/star.png" alt="" id="star6">
-        <img src="main/star.png" alt="" id="star7">
-        <img src="main/star.png" alt="" id="star8">
+        <img src="slide/star.png" alt="" id="star1">
+        <img src="slide/star.png" alt="" id="star2">
+        <img src="slide/star.png" alt="" id="star3">
+        <img src="slide/star.png" alt="" id="star4">
+        <img src="slide/star.png" alt="" id="star5">
+        <img src="slide/star.png" alt="" id="star6">
+        <img src="slide/star.png" alt="" id="star7">
+        <img src="slide/star.png" alt="" id="star8">
         <img src="icon/arrow.png" alt="" id="arrow">
         <img src="icon/logo1.png" alt="" id="main_logo">
     </div>
@@ -446,7 +483,7 @@
                             <img src="slide/moon.png" alt="" class="stiker1">
                             <img src="slide/sayaka.png" alt="" class="character_img">
                             <div class="book">
-                                <img src="book.png" alt="" class="book">
+                                <img src="slide/book.png" alt="" class="book">
                                 <div class="text_box">
                                     <h2>NATORA SAYAKA</h2>
                                     <p>I'm a fellow student of Mitsuha and I'll buy a nickname for him a nickname. The short braided hair in pigtails and the tear point on the left eye are the key points. As mentioned in the introduction of the above person, there is an older sister who works at the dong office, who is in charge of village broadcasting twice a day, and she is a member of the school broadcasting team. For your information, at first, I thought Mitsuha's comet collision rumor with Teshi was nonsense, but when Mitsuha (Taki, who was possessed), who offered all his money, said, "I'll let you eat convenience store food at will, so help me," I knew and believed it. Mitsuha's pocket money is quite small, but her best friend Teshi Sayaka knows that she is making a lot of efforts to save it, so she recognized that her words are not false. This fact is mentioned only in the novel version, and this is why Sayaka suddenly bought a package of food from a convenience store in the second half of the movie version.
@@ -462,7 +499,7 @@
                             <img src="slide/moon.png" alt="" class="stiker1">
                             <img src="slide/katuhico.png" alt="" class="character_img">
                             <div class="book">
-                                <img src="book.png" alt="" class="book">
+                                <img src="slide/book.png" alt="" class="book">
                                 <div class="text_box">
                                     <h2>Tesigawara kacheuiko</h2>
                                     <p>
@@ -481,7 +518,7 @@
                             <img src="slide/moon.png" alt="" class="stiker1">
                             <img src="slide/yotuha.png" alt="" class="character_img">
                             <div class="book">
-                                <img src="book.png" alt="" class="book">
+                                <img src="slide/book.png" alt="" class="book">
                                 <div class="text_box">
                                     <h2>MIYAMIZU YOTSUHA</h2>
                                     <p>She is 8 years younger than Mitsuha and is 9 years old as of 2013. This can also be seen in the list of victims in the second half of the movie. Each of the lists has numbers written under their names, and from the fact that Mitsuha, Teshi, and Sayaka are written 17, it can be seen that the numbers mean age. A diligent child who always wakes up earlier than her sister. In the middle of the work, he usually appears to wake up his older sister, but at each time, he is characterized by his rude appearance of closing Mitsuha's door with an angry voice saying, "Eat!"Isn't that a real sister characteristic?
@@ -554,7 +591,7 @@
             <img src="slide/gideline.png" alt="" id="gideline">
             <div id="popup_bg1">
                 <div class="popup_box">
-                        <ul class="popup_slide">
+                        <ul id="popup_slide1">
                             <li><img src="slide/itomoly1.jpg" alt=""></li>
                             <li><img src="slide/itomoly2.jpg" alt=""></li>
                             <li><img src="slide/itomoly3.jpg" alt=""></li>
@@ -564,7 +601,7 @@
                         </ul>
                         <img src="icon/btn-close-m.png" alt="" id="close_bt1">
                 </div>
-                <ul id="gallery_bt">
+                <ul id="gallery_bt1">
                     <li></li>
                     <li></li>
                     <li></li>
@@ -575,7 +612,7 @@
             </div>
             <div id="popup_bg2">
                 <div class="popup_box">
-                    <ul class="popup_slide">
+                    <ul id="popup_slide2">
                         <li><img src="slide/tokyo1.jpg" alt=""></li>
                         <li><img src="slide/tokyo1.png" alt=""></li>
                         <li><img src="slide/tokyo3.jpg" alt=""></li>
@@ -585,7 +622,7 @@
                     </ul>
                     <img src="icon/btn-close-m.png" alt="" id="close_bt2">
                 </div>
-                <ul id="gallery_bt">
+                <ul id="gallery_bt2">
                     <li></li>
                     <li></li>
                     <li></li>
@@ -596,7 +633,7 @@
             </div>
             <div id="popup_bg3">
                 <div class="popup_box">
-                    <ul class="popup_slide">
+                    <ul id="popup_slide3">
                         <li><img src="slide/taki1.png" alt=""></li>
                         <li><img src="slide/taki2.jpg" alt=""></li>
                         <li><img src="slide/taki3.jpg" alt=""></li>
@@ -606,7 +643,7 @@
                     </ul>
                     <img src="icon/btn-close-m.png" alt="" id="close_bt3">
                 </div>
-                <ul id="gallery_bt">
+                <ul id="gallery_bt3">
                     <li></li>
                     <li></li>
                     <li></li>
@@ -635,13 +672,26 @@
             </div>
         </div>
     </div>
+    <div id="goods">
+        <div class="bg">
+            <div id="goods_box">
+                <img src="goods1.png" alt="" id="goods1">
+                <img src="goods2.png" alt="" id="goods2">
+                <a href="https://www.shopcraft.co.kr/goods/goods_view.php?goodsNo=1000070257"><button>BUY NOW</button></a>
+            </div>
+        </div>
+        <footer> 
+            <p>HONG 2022 copyright @ ALL RIGHTS RESERVED. <br>
+                creating modern and responsive design for Web and Mobile</p>
+        </footer>
+    </div>
     <div id="sns">
         <h4>Follow us</h4>
         <ul>
-            <li><img src="icon/sns_1.png" alt=""></li>
-            <li><img src="icon/sns_2.png" alt=""></li>
-            <li><img src="icon/sns_3.png" alt=""></li>
-            <li><img src="icon/sns_4.png" alt=""></li>
+            <li><a href="http://kiminona.com/"><img src="icon/sns_1.png" alt=""></a></li>
+            <li><a href="https://twitter.com/kiminona_movie"><img src="icon/sns_2.png" alt=""></a></li>
+            <li><a href="https://www.youtube.com/watch?v=0GtEGZv1_Os"><img src="icon/sns_3.png" alt=""></a></li>
+            <li><a href="https://www.instagram.com/mediacastle/"><img src="icon/sns_4.png" alt=""></a></li>
         </ul>
     </div>
     <ul id="menu_bar">
@@ -651,6 +701,7 @@
         <li>OST</li>
         <li>GALLEY</li>
         <li>PREVIEW</li>
+        <li>GOODS</li>
     </ul>
 </body>
 </html>
